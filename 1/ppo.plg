@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\User\OneDrive\Biezace\Dydaktyka\Przedmioty\2023\PPO\Cpp\1\ppo.uvproj
+Project File Date:  03/07/2023
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling Startup.s...
+compiling keyboard.c...
+compiling led.c...
+compiling main.c...
+linking...
+Program Size: Code=892 RO-data=32 RW-data=4 ZI-data=1260  
+".\ppo.axf" - 0 Errors, 0 Warning(s).
