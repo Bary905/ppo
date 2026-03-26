@@ -6,9 +6,6 @@
 #define LED2_bm (1<<18)
 #define LED3_bm (1<<19)
 
-extern unsigned char ucInversion;
-
-
 void LedInv::On(unsigned char ucLedIndex)
 {
 	IO1SET = (LED0_bm | LED1_bm | LED2_bm | LED3_bm);
