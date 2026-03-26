@@ -14,6 +14,13 @@ int main(void)
 {
 	Keyboard MyKeyboard;
 	
+	if(MyKeyboard.eRead()==BUTTON_4){
+		MyStepper.SetMode(1);
+	}
+	else{
+		MyStepper.SetMode(0);
+	}
+	
 	while(1){
 		Delay(500);
 		

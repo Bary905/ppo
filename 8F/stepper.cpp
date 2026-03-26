@@ -1,7 +1,11 @@
 #include "stepper.h"
+#include "led.h"
 
 enum Step{LEFT,RIGHT};
 
+void Stepper::SetLed(Led* pLedWrite){
+	pLed=pLedWrite;
+}
 
 void Stepper::Step(enum Step eStep){
 	if(eStep == LEFT){
@@ -12,7 +16,7 @@ void Stepper::Step(enum Step eStep){
 	}else{
 	}
 		ucLedCtr = ucLedCtr % 4;
-		MyLed.On(ucLedCtr);
+		pLed->On(ucLedCtr);
 }
 
 void Stepper::StepLeft(void){

@@ -1,6 +1,8 @@
 #include "stepper.h"
 #include "keyboard.h"
 
+unsigned char ucInversion;
+
 Stepper MyStepper;
 
 void Delay(int iTimeInMs){
@@ -13,6 +15,13 @@ void Delay(int iTimeInMs){
 int main(void)
 {
 	Keyboard MyKeyboard;
+	
+	if(MyKeyboard.eRead()==BUTTON_4){
+		ucInversion = 1;
+	}
+	else{
+		ucInversion=0;
+	}
 	
 	while(1){
 		Delay(500);
