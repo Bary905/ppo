@@ -2,9 +2,10 @@
 
 enum Step{LEFT,RIGHT};
 
+
 Stepper::Stepper(unsigned char ucLedDef)
 {
-	ucLedCtr = ucLedDef;
+	ucLedCtr=ucLedDef;
 	MyLed.On(ucLedCtr);
 }
 
@@ -14,6 +15,7 @@ void Stepper::Step(enum Step eStep){
 	}
 	else if(eStep == RIGHT){
 		ucLedCtr++;
+		
 	}else{
 	}
 		ucLedCtr = ucLedCtr % 4;

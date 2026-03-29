@@ -11,7 +11,6 @@ void Delay(int iTimeInMs){
 
 int main(void)
 {
-
 	while(1){
 		Delay(500);
 		MyStepper.StepLeft();

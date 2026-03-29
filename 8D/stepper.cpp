@@ -2,8 +2,8 @@
 
 enum Step{LEFT,RIGHT};
 
-void Stepper::SetMode(unsigned char ucLedWrite){
-	ucInversion=ucLedWrite;
+void Stepper::SetMode(unsigned char ucLedMode){
+	ucInversion=ucLedMode;
 }
 
 void Stepper::Step(enum Step eStep){
@@ -12,15 +12,15 @@ void Stepper::Step(enum Step eStep){
 	}
 	else if(eStep == RIGHT){
 		ucLedCtr++;
+		
 	}else{
 	}
 		ucLedCtr = ucLedCtr % 4;
-	if(ucInversion){
-		MyLedInv.On(ucLedCtr);
-	}
-	else{
-		MyLed.On(ucLedCtr);
-	}
+		if(ucInversion){
+			MyLedInv.On(ucLedCtr);
+		}else{
+			MyLed.On(ucLedCtr);
+		}
 }
 
 void Stepper::StepLeft(void){

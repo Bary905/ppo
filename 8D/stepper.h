@@ -3,19 +3,19 @@
 
 #include "ledinv.h"
 
-class Stepper
-{
+class Stepper {
+
 	public:
-			void StepRight(void);
-			void StepLeft(void);
-			void SetMode(unsigned char);
+		void StepRight(void);
+		void StepLeft(void);
+		void SetMode(unsigned char);
 	
 	private:
-			unsigned char ucInversion;
-			unsigned char ucLedCtr;
-      void Step(enum Step);
-			Led MyLed;
-			LedInv MyLedInv;
+		unsigned char ucInversion;
+		void Step(enum Step);
+		unsigned char ucLedCtr;
+		Led MyLed;
+		LedInv MyLedInv;
 };
 
 #endif

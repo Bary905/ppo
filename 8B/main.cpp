@@ -1,5 +1,5 @@
 #include "stepper.h"
-#include "keyboard.h"
+#include "Keyboard.h"
 
 unsigned char ucInversion;
 
@@ -16,25 +16,24 @@ int main(void)
 {
 	Keyboard MyKeyboard;
 	
-	if(MyKeyboard.eRead()==BUTTON_4){
+	if(MyKeyboard.eRead() == BUTTON_4){
 		ucInversion = 1;
-	}
-	else{
-		ucInversion=0;
+	}else{
+		ucInversion = 0;
 	}
 	
 	while(1){
 		Delay(500);
 		
-		switch (MyKeyboard.eRead()){
-			case BUTTON_1:
-				MyStepper.StepRight();
-			break;
-			case BUTTON_2:
-				MyStepper.StepLeft();
-			break;
-			default:
-			break;
-		}
+		switch(MyKeyboard.eRead()){
+		case BUTTON_1:
+			MyStepper.StepRight();
+		break;
+		case BUTTON_2:
+			MyStepper.StepLeft(); 
+		break;
+		default:
+		break;		
+	}
 	}
 }

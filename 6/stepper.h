@@ -3,16 +3,16 @@
 
 #include "led.h"
 
-class Stepper : private Led
-{
+class Stepper : private Led {
+
 	public:
-			Stepper (unsigned char = 0);
-			void StepRight(void);
-			void StepLeft(void);
+		Stepper (unsigned char = 0);
+		void StepRight(void);
+		void StepLeft(void);
 	
 	private:
-			unsigned char ucLedCtr;
-      void Step(enum Step);
+		void Step(enum Step);
+		unsigned char ucLedCtr;
 };
 
 #endif

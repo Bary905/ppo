@@ -1,8 +1,9 @@
 #include "stepper.h"
 
+extern unsigned char ucInversion;
+
 enum Step{LEFT,RIGHT};
 
-extern unsigned char ucInversion;
 
 void Stepper::Step(enum Step eStep){
 	if(eStep == LEFT){
@@ -10,15 +11,15 @@ void Stepper::Step(enum Step eStep){
 	}
 	else if(eStep == RIGHT){
 		ucLedCtr++;
+		
 	}else{
 	}
 		ucLedCtr = ucLedCtr % 4;
-	if(ucInversion){
-		MyLedInv.On(ucLedCtr);
-	}
-	else{
-		MyLed.On(ucLedCtr);
-	}
+		if(ucInversion){
+			MyLedInv.On(ucLedCtr);
+		}else{
+			MyLed.On(ucLedCtr);
+		}
 }
 
 void Stepper::StepLeft(void){

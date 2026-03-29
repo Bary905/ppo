@@ -3,17 +3,17 @@
 
 class Led;
 
-class Stepper
-{
+class Stepper {
+
 	public:
-			void StepRight(void);
-			void StepLeft(void);
-			void SetLed(Led*);
+		void StepRight(void);
+		void StepLeft(void);
+		void SetLed(Led* pLedWrite);
 	
 	private:
-			unsigned char ucLedCtr;
-      void Step(enum Step);
-			Led* pLed;
+		void Step(enum Step);
+		unsigned char ucLedCtr;
+		Led* pLed;
 };
 
 #endif

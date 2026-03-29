@@ -8,11 +8,12 @@ enum KeyboardState{
 	BUTTON_3,
 	BUTTON_4};
 
-class Keyboard
-{
+class Keyboard {
+	
 	public:
 		Keyboard();
 		enum KeyboardState eRead(void);
+
 };
 
 #endif

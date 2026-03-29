@@ -3,9 +3,11 @@
 
 #include "led.h"
 
-class LedInv : public Led
-{
-    public:
-        virtual void On(unsigned char);
+class LedInv : public Led {
+
+	public:
+		virtual void On(unsigned char);
+	
 };
+
 #endif

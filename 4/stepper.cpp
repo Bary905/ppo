@@ -11,6 +11,7 @@ void Stepper::Step(enum Step eStep){
 	}
 	else if(eStep == RIGHT){
 		ucLedCtr++;
+		
 	}else{
 	}
 		ucLedCtr = ucLedCtr % 4;
