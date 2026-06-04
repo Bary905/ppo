@@ -1,0 +1,2 @@
+../src/Keyboard.cxx:5:1:Keyboard::Keyboard(uint8_t)	16	static
+../src/Keyboard.cxx:11:20:KeyboardState Keyboard::eRead()	32	static

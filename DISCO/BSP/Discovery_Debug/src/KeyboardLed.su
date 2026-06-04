@@ -1,0 +1,2 @@
+../src/KeyboardLed.cxx:3:1:KeyboardLed::KeyboardLed(unsigned char)	24	static
+../src/KeyboardLed.cxx:9:6:void KeyboardLed::eRead()	24	static
