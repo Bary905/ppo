@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  0000b0e4  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00018338  00000000  00000000  0000b114  2**0
+ 13 .debug_info   0001835c  00000000  00000000  0000b114  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 0000427b  00000000  00000000  0002344c  2**0
+ 14 .debug_abbrev 00004288  00000000  00000000  00023470  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00001698  00000000  00000000  000276c8  2**3
+ 15 .debug_aranges 00001698  00000000  00000000  000276f8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00001128  00000000  00000000  00028d60  2**0
+ 16 .debug_rnglists 00001128  00000000  00000000  00028d90  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000284a1  00000000  00000000  00029e88  2**0
+ 17 .debug_macro  000284a1  00000000  00000000  00029eb8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001cadf  00000000  00000000  00052329  2**0
+ 18 .debug_line   0001cad8  00000000  00000000  00052359  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e850d  00000000  00000000  0006ee08  2**0
+ 19 .debug_str    000e852f  00000000  00000000  0006ee31  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00157315  2**0
+ 20 .comment      00000043  00000000  00000000  00157360  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00006448  00000000  00000000  00157358  2**2
+ 21 .debug_frame  00006448  00000000  00000000  001573a4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000069  00000000  00000000  0015d7a0  2**0
+ 22 .debug_line_str 00000069  00000000  00000000  0015d7ec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -18890,7 +18890,7 @@ _GLIBCXX_NODISCARD inline void* operator new(std::size_t, void* __p) _GLIBCXX_US
  8006eba:	6078      	str	r0, [r7, #4]
  8006ebc:	687b      	ldr	r3, [r7, #4]
  8006ebe:	4618      	mov	r0, r3
- 8006ec0:	f000 f893 	bl	8006fea <_ZNSt12_Vector_baseIP3LedSaIS1_EE12_Vector_implC1Ev>
+ 8006ec0:	f000 f894 	bl	8006fec <_ZNSt12_Vector_baseIP3LedSaIS1_EE12_Vector_implC1Ev>
  8006ec4:	687b      	ldr	r3, [r7, #4]
  8006ec6:	4618      	mov	r0, r3
  8006ec8:	3708      	adds	r7, #8
@@ -18961,7 +18961,7 @@ LedBoard::LedBoard(unsigned char ucColumn)
  8006f2c:	f107 0308 	add.w	r3, r7, #8
  8006f30:	4619      	mov	r1, r3
  8006f32:	4628      	mov	r0, r5
- 8006f34:	f000 f86a 	bl	800700c <_ZNSt6vectorIP3LedSaIS1_EE9push_backEOS1_>
+ 8006f34:	f000 f86b 	bl	800700e <_ZNSt6vectorIP3LedSaIS1_EE9push_backEOS1_>
 	for (unsigned int i = 0; i < 4; i++)
  8006f38:	68fb      	ldr	r3, [r7, #12]
  8006f3a:	3301      	adds	r3, #1
@@ -18984,553 +18984,553 @@ LedBoard::LedBoard(unsigned char ucColumn)
 void LedBoard::Off()
 {
  8006f54:	b580      	push	{r7, lr}
- 8006f56:	b084      	sub	sp, #16
+ 8006f56:	b086      	sub	sp, #24
  8006f58:	af00      	add	r7, sp, #0
  8006f5a:	6078      	str	r0, [r7, #4]
-	for (std::vector<Led*>::iterator it = Leds.begin(); it != Leds.end(); ++it)
+	for (auto it : Leds)
  8006f5c:	687b      	ldr	r3, [r7, #4]
- 8006f5e:	4618      	mov	r0, r3
- 8006f60:	f000 f865 	bl	800702e <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>
- 8006f64:	4603      	mov	r3, r0
- 8006f66:	60bb      	str	r3, [r7, #8]
- 8006f68:	e00e      	b.n	8006f88 <_ZN8LedBoard3OffEv+0x34>
+ 8006f5e:	617b      	str	r3, [r7, #20]
+ 8006f60:	6978      	ldr	r0, [r7, #20]
+ 8006f62:	f000 f865 	bl	8007030 <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>
+ 8006f66:	4603      	mov	r3, r0
+ 8006f68:	60fb      	str	r3, [r7, #12]
+ 8006f6a:	6978      	ldr	r0, [r7, #20]
+ 8006f6c:	f000 f870 	bl	8007050 <_ZNSt6vectorIP3LedSaIS1_EE3endEv>
+ 8006f70:	4603      	mov	r3, r0
+ 8006f72:	60bb      	str	r3, [r7, #8]
+ 8006f74:	e00f      	b.n	8006f96 <_ZN8LedBoard3OffEv+0x42>
+ 8006f76:	f107 030c 	add.w	r3, r7, #12
+ 8006f7a:	4618      	mov	r0, r3
+ 8006f7c:	f000 f8a1 	bl	80070c2 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEdeEv>
+ 8006f80:	4603      	mov	r3, r0
+ 8006f82:	681b      	ldr	r3, [r3, #0]
+ 8006f84:	613b      	str	r3, [r7, #16]
 	{
-		(*it)->Off();
- 8006f6a:	f107 0308 	add.w	r3, r7, #8
- 8006f6e:	4618      	mov	r0, r3
- 8006f70:	f000 f8a6 	bl	80070c0 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEdeEv>
- 8006f74:	4603      	mov	r3, r0
- 8006f76:	681b      	ldr	r3, [r3, #0]
- 8006f78:	4618      	mov	r0, r3
- 8006f7a:	f7ff ff81 	bl	8006e80 <_ZN3Led3OffEv>
-	for (std::vector<Led*>::iterator it = Leds.begin(); it != Leds.end(); ++it)
- 8006f7e:	f107 0308 	add.w	r3, r7, #8
- 8006f82:	4618      	mov	r0, r3
- 8006f84:	f000 f88c 	bl	80070a0 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEppEv>
- 8006f88:	687b      	ldr	r3, [r7, #4]
- 8006f8a:	4618      	mov	r0, r3
- 8006f8c:	f000 f85f 	bl	800704e <_ZNSt6vectorIP3LedSaIS1_EE3endEv>
- 8006f90:	4603      	mov	r3, r0
- 8006f92:	60fb      	str	r3, [r7, #12]
- 8006f94:	f107 020c 	add.w	r2, r7, #12
- 8006f98:	f107 0308 	add.w	r3, r7, #8
- 8006f9c:	4611      	mov	r1, r2
- 8006f9e:	4618      	mov	r0, r3
- 8006fa0:	f000 f866 	bl	8007070 <_ZN9__gnu_cxxneIPP3LedSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_>
- 8006fa4:	4603      	mov	r3, r0
- 8006fa6:	2b00      	cmp	r3, #0
- 8006fa8:	d1df      	bne.n	8006f6a <_ZN8LedBoard3OffEv+0x16>
+		it -> Off();
+ 8006f86:	6938      	ldr	r0, [r7, #16]
+ 8006f88:	f7ff ff7a 	bl	8006e80 <_ZN3Led3OffEv>
+	for (auto it : Leds)
+ 8006f8c:	f107 030c 	add.w	r3, r7, #12
+ 8006f90:	4618      	mov	r0, r3
+ 8006f92:	f000 f886 	bl	80070a2 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEppEv>
+ 8006f96:	f107 0208 	add.w	r2, r7, #8
+ 8006f9a:	f107 030c 	add.w	r3, r7, #12
+ 8006f9e:	4611      	mov	r1, r2
+ 8006fa0:	4618      	mov	r0, r3
+ 8006fa2:	f000 f866 	bl	8007072 <_ZN9__gnu_cxxneIPP3LedSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_>
+ 8006fa6:	4603      	mov	r3, r0
+ 8006fa8:	2b00      	cmp	r3, #0
+ 8006faa:	d1e4      	bne.n	8006f76 <_ZN8LedBoard3OffEv+0x22>
 	}
 }
- 8006faa:	bf00      	nop
  8006fac:	bf00      	nop
- 8006fae:	3710      	adds	r7, #16
- 8006fb0:	46bd      	mov	sp, r7
- 8006fb2:	bd80      	pop	{r7, pc}
+ 8006fae:	bf00      	nop
+ 8006fb0:	3718      	adds	r7, #24
+ 8006fb2:	46bd      	mov	sp, r7
+ 8006fb4:	bd80      	pop	{r7, pc}
 
-08006fb4 <_ZN8LedBoard2OnEh>:
+08006fb6 <_ZN8LedBoard2OnEh>:
 
 void LedBoard::On(unsigned char index)
 {
- 8006fb4:	b580      	push	{r7, lr}
- 8006fb6:	b082      	sub	sp, #8
- 8006fb8:	af00      	add	r7, sp, #0
- 8006fba:	6078      	str	r0, [r7, #4]
- 8006fbc:	460b      	mov	r3, r1
- 8006fbe:	70fb      	strb	r3, [r7, #3]
+ 8006fb6:	b580      	push	{r7, lr}
+ 8006fb8:	b082      	sub	sp, #8
+ 8006fba:	af00      	add	r7, sp, #0
+ 8006fbc:	6078      	str	r0, [r7, #4]
+ 8006fbe:	460b      	mov	r3, r1
+ 8006fc0:	70fb      	strb	r3, [r7, #3]
 	Off();
- 8006fc0:	6878      	ldr	r0, [r7, #4]
- 8006fc2:	f7ff ffc7 	bl	8006f54 <_ZN8LedBoard3OffEv>
+ 8006fc2:	6878      	ldr	r0, [r7, #4]
+ 8006fc4:	f7ff ffc6 	bl	8006f54 <_ZN8LedBoard3OffEv>
 	if (index < 4)
- 8006fc6:	78fb      	ldrb	r3, [r7, #3]
- 8006fc8:	2b03      	cmp	r3, #3
- 8006fca:	d80a      	bhi.n	8006fe2 <_ZN8LedBoard2OnEh+0x2e>
+ 8006fc8:	78fb      	ldrb	r3, [r7, #3]
+ 8006fca:	2b03      	cmp	r3, #3
+ 8006fcc:	d80a      	bhi.n	8006fe4 <_ZN8LedBoard2OnEh+0x2e>
 	{
 		Leds[index]->On();
- 8006fcc:	687b      	ldr	r3, [r7, #4]
- 8006fce:	78fa      	ldrb	r2, [r7, #3]
- 8006fd0:	4611      	mov	r1, r2
- 8006fd2:	4618      	mov	r0, r3
- 8006fd4:	f000 f880 	bl	80070d8 <_ZNSt6vectorIP3LedSaIS1_EEixEj>
- 8006fd8:	4603      	mov	r3, r0
- 8006fda:	681b      	ldr	r3, [r3, #0]
- 8006fdc:	4618      	mov	r0, r3
- 8006fde:	f7ff ff41 	bl	8006e64 <_ZN3Led2OnEv>
+ 8006fce:	687b      	ldr	r3, [r7, #4]
+ 8006fd0:	78fa      	ldrb	r2, [r7, #3]
+ 8006fd2:	4611      	mov	r1, r2
+ 8006fd4:	4618      	mov	r0, r3
+ 8006fd6:	f000 f880 	bl	80070da <_ZNSt6vectorIP3LedSaIS1_EEixEj>
+ 8006fda:	4603      	mov	r3, r0
+ 8006fdc:	681b      	ldr	r3, [r3, #0]
+ 8006fde:	4618      	mov	r0, r3
+ 8006fe0:	f7ff ff40 	bl	8006e64 <_ZN3Led2OnEv>
 	}
 }
- 8006fe2:	bf00      	nop
- 8006fe4:	3708      	adds	r7, #8
- 8006fe6:	46bd      	mov	sp, r7
- 8006fe8:	bd80      	pop	{r7, pc}
+ 8006fe4:	bf00      	nop
+ 8006fe6:	3708      	adds	r7, #8
+ 8006fe8:	46bd      	mov	sp, r7
+ 8006fea:	bd80      	pop	{r7, pc}
 
-08006fea <_ZNSt12_Vector_baseIP3LedSaIS1_EE12_Vector_implC1Ev>:
+08006fec <_ZNSt12_Vector_baseIP3LedSaIS1_EE12_Vector_implC1Ev>:
 	_Vector_impl() _GLIBCXX_NOEXCEPT_IF(
- 8006fea:	b580      	push	{r7, lr}
- 8006fec:	b084      	sub	sp, #16
- 8006fee:	af00      	add	r7, sp, #0
- 8006ff0:	6078      	str	r0, [r7, #4]
- 8006ff2:	687b      	ldr	r3, [r7, #4]
- 8006ff4:	60fb      	str	r3, [r7, #12]
- 8006ff6:	68fb      	ldr	r3, [r7, #12]
- 8006ff8:	60bb      	str	r3, [r7, #8]
+ 8006fec:	b580      	push	{r7, lr}
+ 8006fee:	b084      	sub	sp, #16
+ 8006ff0:	af00      	add	r7, sp, #0
+ 8006ff2:	6078      	str	r0, [r7, #4]
+ 8006ff4:	687b      	ldr	r3, [r7, #4]
+ 8006ff6:	60fb      	str	r3, [r7, #12]
+ 8006ff8:	68fb      	ldr	r3, [r7, #12]
+ 8006ffa:	60bb      	str	r3, [r7, #8]
 	: _Tp_alloc_type()
- 8006ffa:	687b      	ldr	r3, [r7, #4]
- 8006ffc:	4618      	mov	r0, r3
- 8006ffe:	f000 f87b 	bl	80070f8 <_ZNSt12_Vector_baseIP3LedSaIS1_EE17_Vector_impl_dataC1Ev>
+ 8006ffc:	687b      	ldr	r3, [r7, #4]
+ 8006ffe:	4618      	mov	r0, r3
+ 8007000:	f000 f87b 	bl	80070fa <_ZNSt12_Vector_baseIP3LedSaIS1_EE17_Vector_impl_dataC1Ev>
 	{ }
- 8007002:	687b      	ldr	r3, [r7, #4]
- 8007004:	4618      	mov	r0, r3
- 8007006:	3710      	adds	r7, #16
- 8007008:	46bd      	mov	sp, r7
- 800700a:	bd80      	pop	{r7, pc}
+ 8007004:	687b      	ldr	r3, [r7, #4]
+ 8007006:	4618      	mov	r0, r3
+ 8007008:	3710      	adds	r7, #16
+ 800700a:	46bd      	mov	sp, r7
+ 800700c:	bd80      	pop	{r7, pc}
 
-0800700c <_ZNSt6vectorIP3LedSaIS1_EE9push_backEOS1_>:
+0800700e <_ZNSt6vectorIP3LedSaIS1_EE9push_backEOS1_>:
       }
 
 #if __cplusplus >= 201103L
       _GLIBCXX20_CONSTEXPR
       void
       push_back(value_type&& __x)
- 800700c:	b580      	push	{r7, lr}
- 800700e:	b082      	sub	sp, #8
- 8007010:	af00      	add	r7, sp, #0
- 8007012:	6078      	str	r0, [r7, #4]
- 8007014:	6039      	str	r1, [r7, #0]
+ 800700e:	b580      	push	{r7, lr}
+ 8007010:	b082      	sub	sp, #8
+ 8007012:	af00      	add	r7, sp, #0
+ 8007014:	6078      	str	r0, [r7, #4]
+ 8007016:	6039      	str	r1, [r7, #0]
       { emplace_back(std::move(__x)); }
- 8007016:	6838      	ldr	r0, [r7, #0]
- 8007018:	f000 f8a6 	bl	8007168 <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>
- 800701c:	4603      	mov	r3, r0
- 800701e:	4619      	mov	r1, r3
- 8007020:	6878      	ldr	r0, [r7, #4]
- 8007022:	f000 f8ac 	bl	800717e <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_>
- 8007026:	bf00      	nop
- 8007028:	3708      	adds	r7, #8
- 800702a:	46bd      	mov	sp, r7
- 800702c:	bd80      	pop	{r7, pc}
+ 8007018:	6838      	ldr	r0, [r7, #0]
+ 800701a:	f000 f8a6 	bl	800716a <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>
+ 800701e:	4603      	mov	r3, r0
+ 8007020:	4619      	mov	r1, r3
+ 8007022:	6878      	ldr	r0, [r7, #4]
+ 8007024:	f000 f8ac 	bl	8007180 <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_>
+ 8007028:	bf00      	nop
+ 800702a:	3708      	adds	r7, #8
+ 800702c:	46bd      	mov	sp, r7
+ 800702e:	bd80      	pop	{r7, pc}
 
-0800702e <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>:
+08007030 <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>:
       begin() _GLIBCXX_NOEXCEPT
- 800702e:	b580      	push	{r7, lr}
- 8007030:	b084      	sub	sp, #16
- 8007032:	af00      	add	r7, sp, #0
- 8007034:	6078      	str	r0, [r7, #4]
+ 8007030:	b580      	push	{r7, lr}
+ 8007032:	b084      	sub	sp, #16
+ 8007034:	af00      	add	r7, sp, #0
+ 8007036:	6078      	str	r0, [r7, #4]
       { return iterator(this->_M_impl._M_start); }
- 8007036:	687a      	ldr	r2, [r7, #4]
- 8007038:	f107 030c 	add.w	r3, r7, #12
- 800703c:	4611      	mov	r1, r2
- 800703e:	4618      	mov	r0, r3
- 8007040:	f000 f8e0 	bl	8007204 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>
- 8007044:	68fb      	ldr	r3, [r7, #12]
- 8007046:	4618      	mov	r0, r3
- 8007048:	3710      	adds	r7, #16
- 800704a:	46bd      	mov	sp, r7
- 800704c:	bd80      	pop	{r7, pc}
+ 8007038:	687a      	ldr	r2, [r7, #4]
+ 800703a:	f107 030c 	add.w	r3, r7, #12
+ 800703e:	4611      	mov	r1, r2
+ 8007040:	4618      	mov	r0, r3
+ 8007042:	f000 f8e0 	bl	8007206 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>
+ 8007046:	68fb      	ldr	r3, [r7, #12]
+ 8007048:	4618      	mov	r0, r3
+ 800704a:	3710      	adds	r7, #16
+ 800704c:	46bd      	mov	sp, r7
+ 800704e:	bd80      	pop	{r7, pc}
 
-0800704e <_ZNSt6vectorIP3LedSaIS1_EE3endEv>:
+08007050 <_ZNSt6vectorIP3LedSaIS1_EE3endEv>:
       end() _GLIBCXX_NOEXCEPT
- 800704e:	b580      	push	{r7, lr}
- 8007050:	b084      	sub	sp, #16
- 8007052:	af00      	add	r7, sp, #0
- 8007054:	6078      	str	r0, [r7, #4]
+ 8007050:	b580      	push	{r7, lr}
+ 8007052:	b084      	sub	sp, #16
+ 8007054:	af00      	add	r7, sp, #0
+ 8007056:	6078      	str	r0, [r7, #4]
       { return iterator(this->_M_impl._M_finish); }
- 8007056:	687b      	ldr	r3, [r7, #4]
- 8007058:	1d1a      	adds	r2, r3, #4
- 800705a:	f107 030c 	add.w	r3, r7, #12
- 800705e:	4611      	mov	r1, r2
- 8007060:	4618      	mov	r0, r3
- 8007062:	f000 f8cf 	bl	8007204 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>
- 8007066:	68fb      	ldr	r3, [r7, #12]
- 8007068:	4618      	mov	r0, r3
- 800706a:	3710      	adds	r7, #16
- 800706c:	46bd      	mov	sp, r7
- 800706e:	bd80      	pop	{r7, pc}
+ 8007058:	687b      	ldr	r3, [r7, #4]
+ 800705a:	1d1a      	adds	r2, r3, #4
+ 800705c:	f107 030c 	add.w	r3, r7, #12
+ 8007060:	4611      	mov	r1, r2
+ 8007062:	4618      	mov	r0, r3
+ 8007064:	f000 f8cf 	bl	8007206 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>
+ 8007068:	68fb      	ldr	r3, [r7, #12]
+ 800706a:	4618      	mov	r0, r3
+ 800706c:	3710      	adds	r7, #16
+ 800706e:	46bd      	mov	sp, r7
+ 8007070:	bd80      	pop	{r7, pc}
 
-08007070 <_ZN9__gnu_cxxneIPP3LedSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_>:
+08007072 <_ZN9__gnu_cxxneIPP3LedSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_>:
     { return __lhs.base() != __rhs.base(); }
 
   template<typename _Iterator, typename _Container>
     _GLIBCXX_NODISCARD _GLIBCXX20_CONSTEXPR
     inline bool
     operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
- 8007070:	b590      	push	{r4, r7, lr}
- 8007072:	b083      	sub	sp, #12
- 8007074:	af00      	add	r7, sp, #0
- 8007076:	6078      	str	r0, [r7, #4]
- 8007078:	6039      	str	r1, [r7, #0]
+ 8007072:	b590      	push	{r4, r7, lr}
+ 8007074:	b083      	sub	sp, #12
+ 8007076:	af00      	add	r7, sp, #0
+ 8007078:	6078      	str	r0, [r7, #4]
+ 800707a:	6039      	str	r1, [r7, #0]
 	       const __normal_iterator<_Iterator, _Container>& __rhs)
     _GLIBCXX_NOEXCEPT
     { return __lhs.base() != __rhs.base(); }
- 800707a:	6878      	ldr	r0, [r7, #4]
- 800707c:	f000 f8d2 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
- 8007080:	4603      	mov	r3, r0
- 8007082:	681c      	ldr	r4, [r3, #0]
- 8007084:	6838      	ldr	r0, [r7, #0]
- 8007086:	f000 f8cd 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
- 800708a:	4603      	mov	r3, r0
- 800708c:	681b      	ldr	r3, [r3, #0]
- 800708e:	429c      	cmp	r4, r3
- 8007090:	bf14      	ite	ne
- 8007092:	2301      	movne	r3, #1
- 8007094:	2300      	moveq	r3, #0
- 8007096:	b2db      	uxtb	r3, r3
- 8007098:	4618      	mov	r0, r3
- 800709a:	370c      	adds	r7, #12
- 800709c:	46bd      	mov	sp, r7
- 800709e:	bd90      	pop	{r4, r7, pc}
+ 800707c:	6878      	ldr	r0, [r7, #4]
+ 800707e:	f000 f8d2 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 8007082:	4603      	mov	r3, r0
+ 8007084:	681c      	ldr	r4, [r3, #0]
+ 8007086:	6838      	ldr	r0, [r7, #0]
+ 8007088:	f000 f8cd 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 800708c:	4603      	mov	r3, r0
+ 800708e:	681b      	ldr	r3, [r3, #0]
+ 8007090:	429c      	cmp	r4, r3
+ 8007092:	bf14      	ite	ne
+ 8007094:	2301      	movne	r3, #1
+ 8007096:	2300      	moveq	r3, #0
+ 8007098:	b2db      	uxtb	r3, r3
+ 800709a:	4618      	mov	r0, r3
+ 800709c:	370c      	adds	r7, #12
+ 800709e:	46bd      	mov	sp, r7
+ 80070a0:	bd90      	pop	{r4, r7, pc}
 
-080070a0 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEppEv>:
+080070a2 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEppEv>:
       operator++() _GLIBCXX_NOEXCEPT
- 80070a0:	b480      	push	{r7}
- 80070a2:	b083      	sub	sp, #12
- 80070a4:	af00      	add	r7, sp, #0
- 80070a6:	6078      	str	r0, [r7, #4]
+ 80070a2:	b480      	push	{r7}
+ 80070a4:	b083      	sub	sp, #12
+ 80070a6:	af00      	add	r7, sp, #0
+ 80070a8:	6078      	str	r0, [r7, #4]
 	++_M_current;
- 80070a8:	687b      	ldr	r3, [r7, #4]
- 80070aa:	681b      	ldr	r3, [r3, #0]
- 80070ac:	1d1a      	adds	r2, r3, #4
- 80070ae:	687b      	ldr	r3, [r7, #4]
- 80070b0:	601a      	str	r2, [r3, #0]
+ 80070aa:	687b      	ldr	r3, [r7, #4]
+ 80070ac:	681b      	ldr	r3, [r3, #0]
+ 80070ae:	1d1a      	adds	r2, r3, #4
+ 80070b0:	687b      	ldr	r3, [r7, #4]
+ 80070b2:	601a      	str	r2, [r3, #0]
 	return *this;
- 80070b2:	687b      	ldr	r3, [r7, #4]
+ 80070b4:	687b      	ldr	r3, [r7, #4]
       }
- 80070b4:	4618      	mov	r0, r3
- 80070b6:	370c      	adds	r7, #12
- 80070b8:	46bd      	mov	sp, r7
- 80070ba:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80070be:	4770      	bx	lr
+ 80070b6:	4618      	mov	r0, r3
+ 80070b8:	370c      	adds	r7, #12
+ 80070ba:	46bd      	mov	sp, r7
+ 80070bc:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80070c0:	4770      	bx	lr
 
-080070c0 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEdeEv>:
+080070c2 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEdeEv>:
       operator*() const _GLIBCXX_NOEXCEPT
- 80070c0:	b480      	push	{r7}
- 80070c2:	b083      	sub	sp, #12
- 80070c4:	af00      	add	r7, sp, #0
- 80070c6:	6078      	str	r0, [r7, #4]
+ 80070c2:	b480      	push	{r7}
+ 80070c4:	b083      	sub	sp, #12
+ 80070c6:	af00      	add	r7, sp, #0
+ 80070c8:	6078      	str	r0, [r7, #4]
       { return *_M_current; }
- 80070c8:	687b      	ldr	r3, [r7, #4]
- 80070ca:	681b      	ldr	r3, [r3, #0]
- 80070cc:	4618      	mov	r0, r3
- 80070ce:	370c      	adds	r7, #12
- 80070d0:	46bd      	mov	sp, r7
- 80070d2:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80070d6:	4770      	bx	lr
+ 80070ca:	687b      	ldr	r3, [r7, #4]
+ 80070cc:	681b      	ldr	r3, [r3, #0]
+ 80070ce:	4618      	mov	r0, r3
+ 80070d0:	370c      	adds	r7, #12
+ 80070d2:	46bd      	mov	sp, r7
+ 80070d4:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80070d8:	4770      	bx	lr
 
-080070d8 <_ZNSt6vectorIP3LedSaIS1_EEixEj>:
+080070da <_ZNSt6vectorIP3LedSaIS1_EEixEj>:
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
- 80070d8:	b480      	push	{r7}
- 80070da:	b083      	sub	sp, #12
- 80070dc:	af00      	add	r7, sp, #0
- 80070de:	6078      	str	r0, [r7, #4]
- 80070e0:	6039      	str	r1, [r7, #0]
+ 80070da:	b480      	push	{r7}
+ 80070dc:	b083      	sub	sp, #12
+ 80070de:	af00      	add	r7, sp, #0
+ 80070e0:	6078      	str	r0, [r7, #4]
+ 80070e2:	6039      	str	r1, [r7, #0]
 	return *(this->_M_impl._M_start + __n);
- 80070e2:	687b      	ldr	r3, [r7, #4]
- 80070e4:	681a      	ldr	r2, [r3, #0]
- 80070e6:	683b      	ldr	r3, [r7, #0]
- 80070e8:	009b      	lsls	r3, r3, #2
- 80070ea:	4413      	add	r3, r2
+ 80070e4:	687b      	ldr	r3, [r7, #4]
+ 80070e6:	681a      	ldr	r2, [r3, #0]
+ 80070e8:	683b      	ldr	r3, [r7, #0]
+ 80070ea:	009b      	lsls	r3, r3, #2
+ 80070ec:	4413      	add	r3, r2
       }
- 80070ec:	4618      	mov	r0, r3
- 80070ee:	370c      	adds	r7, #12
- 80070f0:	46bd      	mov	sp, r7
- 80070f2:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80070f6:	4770      	bx	lr
+ 80070ee:	4618      	mov	r0, r3
+ 80070f0:	370c      	adds	r7, #12
+ 80070f2:	46bd      	mov	sp, r7
+ 80070f4:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80070f8:	4770      	bx	lr
 
-080070f8 <_ZNSt12_Vector_baseIP3LedSaIS1_EE17_Vector_impl_dataC1Ev>:
+080070fa <_ZNSt12_Vector_baseIP3LedSaIS1_EE17_Vector_impl_dataC1Ev>:
 	_Vector_impl_data() _GLIBCXX_NOEXCEPT
- 80070f8:	b480      	push	{r7}
- 80070fa:	b083      	sub	sp, #12
- 80070fc:	af00      	add	r7, sp, #0
- 80070fe:	6078      	str	r0, [r7, #4]
+ 80070fa:	b480      	push	{r7}
+ 80070fc:	b083      	sub	sp, #12
+ 80070fe:	af00      	add	r7, sp, #0
+ 8007100:	6078      	str	r0, [r7, #4]
 	: _M_start(), _M_finish(), _M_end_of_storage()
- 8007100:	687b      	ldr	r3, [r7, #4]
- 8007102:	2200      	movs	r2, #0
- 8007104:	601a      	str	r2, [r3, #0]
- 8007106:	687b      	ldr	r3, [r7, #4]
- 8007108:	2200      	movs	r2, #0
- 800710a:	605a      	str	r2, [r3, #4]
- 800710c:	687b      	ldr	r3, [r7, #4]
- 800710e:	2200      	movs	r2, #0
- 8007110:	609a      	str	r2, [r3, #8]
+ 8007102:	687b      	ldr	r3, [r7, #4]
+ 8007104:	2200      	movs	r2, #0
+ 8007106:	601a      	str	r2, [r3, #0]
+ 8007108:	687b      	ldr	r3, [r7, #4]
+ 800710a:	2200      	movs	r2, #0
+ 800710c:	605a      	str	r2, [r3, #4]
+ 800710e:	687b      	ldr	r3, [r7, #4]
+ 8007110:	2200      	movs	r2, #0
+ 8007112:	609a      	str	r2, [r3, #8]
 	{ }
- 8007112:	687b      	ldr	r3, [r7, #4]
- 8007114:	4618      	mov	r0, r3
- 8007116:	370c      	adds	r7, #12
- 8007118:	46bd      	mov	sp, r7
- 800711a:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800711e:	4770      	bx	lr
+ 8007114:	687b      	ldr	r3, [r7, #4]
+ 8007116:	4618      	mov	r0, r3
+ 8007118:	370c      	adds	r7, #12
+ 800711a:	46bd      	mov	sp, r7
+ 800711c:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8007120:	4770      	bx	lr
 
-08007120 <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j>:
+08007122 <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j>:
       _M_deallocate(pointer __p, size_t __n)
- 8007120:	b580      	push	{r7, lr}
- 8007122:	b088      	sub	sp, #32
- 8007124:	af00      	add	r7, sp, #0
- 8007126:	60f8      	str	r0, [r7, #12]
- 8007128:	60b9      	str	r1, [r7, #8]
- 800712a:	607a      	str	r2, [r7, #4]
+ 8007122:	b580      	push	{r7, lr}
+ 8007124:	b088      	sub	sp, #32
+ 8007126:	af00      	add	r7, sp, #0
+ 8007128:	60f8      	str	r0, [r7, #12]
+ 800712a:	60b9      	str	r1, [r7, #8]
+ 800712c:	607a      	str	r2, [r7, #4]
 	if (__p)
- 800712c:	68bb      	ldr	r3, [r7, #8]
- 800712e:	2b00      	cmp	r3, #0
- 8007130:	d00b      	beq.n	800714a <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j+0x2a>
+ 800712e:	68bb      	ldr	r3, [r7, #8]
+ 8007130:	2b00      	cmp	r3, #0
+ 8007132:	d00b      	beq.n	800714c <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j+0x2a>
 	  _Tr::deallocate(_M_impl, __p, __n);
- 8007132:	68fb      	ldr	r3, [r7, #12]
- 8007134:	61fb      	str	r3, [r7, #28]
- 8007136:	68bb      	ldr	r3, [r7, #8]
- 8007138:	61bb      	str	r3, [r7, #24]
- 800713a:	687b      	ldr	r3, [r7, #4]
- 800713c:	617b      	str	r3, [r7, #20]
+ 8007134:	68fb      	ldr	r3, [r7, #12]
+ 8007136:	61fb      	str	r3, [r7, #28]
+ 8007138:	68bb      	ldr	r3, [r7, #8]
+ 800713a:	61bb      	str	r3, [r7, #24]
+ 800713c:	687b      	ldr	r3, [r7, #4]
+ 800713e:	617b      	str	r3, [r7, #20]
        *  Calls <tt> a.deallocate(p, n) </tt>
       */
       [[__gnu__::__always_inline__]]
       static _GLIBCXX20_CONSTEXPR void
       deallocate(allocator_type& __a, pointer __p, size_type __n)
       { __a.deallocate(__p, __n); }
- 800713e:	697a      	ldr	r2, [r7, #20]
- 8007140:	69b9      	ldr	r1, [r7, #24]
- 8007142:	69f8      	ldr	r0, [r7, #28]
- 8007144:	f000 f97e 	bl	8007444 <_ZNSt15__new_allocatorIP3LedE10deallocateEPS1_j>
- 8007148:	bf00      	nop
-      }
+ 8007140:	697a      	ldr	r2, [r7, #20]
+ 8007142:	69b9      	ldr	r1, [r7, #24]
+ 8007144:	69f8      	ldr	r0, [r7, #28]
+ 8007146:	f000 f97d 	bl	8007444 <_ZNSt15__new_allocatorIP3LedE10deallocateEPS1_j>
  800714a:	bf00      	nop
- 800714c:	3720      	adds	r7, #32
- 800714e:	46bd      	mov	sp, r7
- 8007150:	bd80      	pop	{r7, pc}
+      }
+ 800714c:	bf00      	nop
+ 800714e:	3720      	adds	r7, #32
+ 8007150:	46bd      	mov	sp, r7
+ 8007152:	bd80      	pop	{r7, pc}
 
-08007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>:
+08007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>:
       _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
- 8007152:	b480      	push	{r7}
- 8007154:	b083      	sub	sp, #12
- 8007156:	af00      	add	r7, sp, #0
- 8007158:	6078      	str	r0, [r7, #4]
+ 8007154:	b480      	push	{r7}
+ 8007156:	b083      	sub	sp, #12
+ 8007158:	af00      	add	r7, sp, #0
+ 800715a:	6078      	str	r0, [r7, #4]
       { return this->_M_impl; }
- 800715a:	687b      	ldr	r3, [r7, #4]
- 800715c:	4618      	mov	r0, r3
- 800715e:	370c      	adds	r7, #12
- 8007160:	46bd      	mov	sp, r7
- 8007162:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8007166:	4770      	bx	lr
+ 800715c:	687b      	ldr	r3, [r7, #4]
+ 800715e:	4618      	mov	r0, r3
+ 8007160:	370c      	adds	r7, #12
+ 8007162:	46bd      	mov	sp, r7
+ 8007164:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8007168:	4770      	bx	lr
 
-08007168 <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>:
+0800716a <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>:
    *  @return The parameter cast to an rvalue-reference to allow moving it.
   */
   template<typename _Tp>
     _GLIBCXX_NODISCARD
     constexpr typename std::remove_reference<_Tp>::type&&
     move(_Tp&& __t) noexcept
- 8007168:	b480      	push	{r7}
- 800716a:	b083      	sub	sp, #12
- 800716c:	af00      	add	r7, sp, #0
- 800716e:	6078      	str	r0, [r7, #4]
+ 800716a:	b480      	push	{r7}
+ 800716c:	b083      	sub	sp, #12
+ 800716e:	af00      	add	r7, sp, #0
+ 8007170:	6078      	str	r0, [r7, #4]
     { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
- 8007170:	687b      	ldr	r3, [r7, #4]
- 8007172:	4618      	mov	r0, r3
- 8007174:	370c      	adds	r7, #12
- 8007176:	46bd      	mov	sp, r7
- 8007178:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800717c:	4770      	bx	lr
+ 8007172:	687b      	ldr	r3, [r7, #4]
+ 8007174:	4618      	mov	r0, r3
+ 8007176:	370c      	adds	r7, #12
+ 8007178:	46bd      	mov	sp, r7
+ 800717a:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800717e:	4770      	bx	lr
 
-0800717e <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_>:
+08007180 <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_>:
       _GLIBCXX20_CONSTEXPR
       typename vector<_Tp, _Alloc>::reference
 #else
       void
 #endif
       vector<_Tp, _Alloc>::
- 800717e:	b5b0      	push	{r4, r5, r7, lr}
- 8007180:	b088      	sub	sp, #32
- 8007182:	af00      	add	r7, sp, #0
- 8007184:	6078      	str	r0, [r7, #4]
- 8007186:	6039      	str	r1, [r7, #0]
+ 8007180:	b5b0      	push	{r4, r5, r7, lr}
+ 8007182:	b088      	sub	sp, #32
+ 8007184:	af00      	add	r7, sp, #0
+ 8007186:	6078      	str	r0, [r7, #4]
+ 8007188:	6039      	str	r1, [r7, #0]
       emplace_back(_Args&&... __args)
       {
 	if (this->_M_impl._M_finish != this->_M_impl._M_end_of_storage)
- 8007188:	687b      	ldr	r3, [r7, #4]
- 800718a:	685a      	ldr	r2, [r3, #4]
- 800718c:	687b      	ldr	r3, [r7, #4]
- 800718e:	689b      	ldr	r3, [r3, #8]
- 8007190:	429a      	cmp	r2, r3
- 8007192:	d026      	beq.n	80071e2 <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_+0x64>
+ 800718a:	687b      	ldr	r3, [r7, #4]
+ 800718c:	685a      	ldr	r2, [r3, #4]
+ 800718e:	687b      	ldr	r3, [r7, #4]
+ 8007190:	689b      	ldr	r3, [r3, #8]
+ 8007192:	429a      	cmp	r2, r3
+ 8007194:	d026      	beq.n	80071e4 <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_+0x64>
 	  {
 	    _GLIBCXX_ASAN_ANNOTATE_GROW(1);
 	    _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish,
- 8007194:	687d      	ldr	r5, [r7, #4]
- 8007196:	687b      	ldr	r3, [r7, #4]
- 8007198:	685c      	ldr	r4, [r3, #4]
- 800719a:	6838      	ldr	r0, [r7, #0]
- 800719c:	f000 f85a 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
- 80071a0:	4603      	mov	r3, r0
- 80071a2:	61fd      	str	r5, [r7, #28]
- 80071a4:	61bc      	str	r4, [r7, #24]
- 80071a6:	617b      	str	r3, [r7, #20]
+ 8007196:	687d      	ldr	r5, [r7, #4]
+ 8007198:	687b      	ldr	r3, [r7, #4]
+ 800719a:	685c      	ldr	r4, [r3, #4]
+ 800719c:	6838      	ldr	r0, [r7, #0]
+ 800719e:	f000 f85a 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 80071a2:	4603      	mov	r3, r0
+ 80071a4:	61fd      	str	r5, [r7, #28]
+ 80071a6:	61bc      	str	r4, [r7, #24]
+ 80071a8:	617b      	str	r3, [r7, #20]
 	construct(allocator_type& __a __attribute__((__unused__)), _Up* __p,
 		  _Args&&... __args)
 	noexcept(std::is_nothrow_constructible<_Up, _Args...>::value)
 	{
 #if __cplusplus <= 201703L
 	  __a.construct(__p, std::forward<_Args>(__args)...);
- 80071a8:	6978      	ldr	r0, [r7, #20]
- 80071aa:	f000 f853 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
- 80071ae:	4602      	mov	r2, r0
- 80071b0:	69fb      	ldr	r3, [r7, #28]
- 80071b2:	613b      	str	r3, [r7, #16]
- 80071b4:	69bb      	ldr	r3, [r7, #24]
- 80071b6:	60fb      	str	r3, [r7, #12]
- 80071b8:	60ba      	str	r2, [r7, #8]
+ 80071aa:	6978      	ldr	r0, [r7, #20]
+ 80071ac:	f000 f853 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 80071b0:	4602      	mov	r2, r0
+ 80071b2:	69fb      	ldr	r3, [r7, #28]
+ 80071b4:	613b      	str	r3, [r7, #16]
+ 80071b6:	69bb      	ldr	r3, [r7, #24]
+ 80071b8:	60fb      	str	r3, [r7, #12]
+ 80071ba:	60ba      	str	r2, [r7, #8]
       template<typename _Up, typename... _Args>
 	__attribute__((__always_inline__))
 	void
 	construct(_Up* __p, _Args&&... __args)
 	noexcept(std::is_nothrow_constructible<_Up, _Args...>::value)
 	{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
- 80071ba:	68fb      	ldr	r3, [r7, #12]
- 80071bc:	4619      	mov	r1, r3
- 80071be:	2004      	movs	r0, #4
- 80071c0:	f7ff fe6c 	bl	8006e9c <_ZnwjPv>
- 80071c4:	4604      	mov	r4, r0
- 80071c6:	68b8      	ldr	r0, [r7, #8]
- 80071c8:	f000 f844 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
- 80071cc:	4603      	mov	r3, r0
- 80071ce:	681b      	ldr	r3, [r3, #0]
- 80071d0:	6023      	str	r3, [r4, #0]
- 80071d2:	bf00      	nop
+ 80071bc:	68fb      	ldr	r3, [r7, #12]
+ 80071be:	4619      	mov	r1, r3
+ 80071c0:	2004      	movs	r0, #4
+ 80071c2:	f7ff fe6b 	bl	8006e9c <_ZnwjPv>
+ 80071c6:	4604      	mov	r4, r0
+ 80071c8:	68b8      	ldr	r0, [r7, #8]
+ 80071ca:	f000 f844 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 80071ce:	4603      	mov	r3, r0
+ 80071d0:	681b      	ldr	r3, [r3, #0]
+ 80071d2:	6023      	str	r3, [r4, #0]
+ 80071d4:	bf00      	nop
 #else
 	  std::construct_at(__p, std::forward<_Args>(__args)...);
 #endif
 	}
- 80071d4:	bf00      	nop
+ 80071d6:	bf00      	nop
 				     std::forward<_Args>(__args)...);
 	    ++this->_M_impl._M_finish;
- 80071d6:	687b      	ldr	r3, [r7, #4]
- 80071d8:	685b      	ldr	r3, [r3, #4]
- 80071da:	1d1a      	adds	r2, r3, #4
- 80071dc:	687b      	ldr	r3, [r7, #4]
- 80071de:	605a      	str	r2, [r3, #4]
+ 80071d8:	687b      	ldr	r3, [r7, #4]
+ 80071da:	685b      	ldr	r3, [r3, #4]
+ 80071dc:	1d1a      	adds	r2, r3, #4
+ 80071de:	687b      	ldr	r3, [r7, #4]
+ 80071e0:	605a      	str	r2, [r3, #4]
 	else
 	  _M_realloc_insert(end(), std::forward<_Args>(__args)...);
 #if __cplusplus > 201402L
 	return back();
 #endif
       }
- 80071e0:	e00c      	b.n	80071fc <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_+0x7e>
+ 80071e2:	e00c      	b.n	80071fe <_ZNSt6vectorIP3LedSaIS1_EE12emplace_backIJS1_EEEvDpOT_+0x7e>
 	  _M_realloc_insert(end(), std::forward<_Args>(__args)...);
- 80071e2:	6878      	ldr	r0, [r7, #4]
- 80071e4:	f7ff ff33 	bl	800704e <_ZNSt6vectorIP3LedSaIS1_EE3endEv>
- 80071e8:	4604      	mov	r4, r0
- 80071ea:	6838      	ldr	r0, [r7, #0]
- 80071ec:	f000 f832 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
- 80071f0:	4603      	mov	r3, r0
- 80071f2:	461a      	mov	r2, r3
- 80071f4:	4621      	mov	r1, r4
- 80071f6:	6878      	ldr	r0, [r7, #4]
- 80071f8:	f000 f84e 	bl	8007298 <_ZNSt6vectorIP3LedSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_>
+ 80071e4:	6878      	ldr	r0, [r7, #4]
+ 80071e6:	f7ff ff33 	bl	8007050 <_ZNSt6vectorIP3LedSaIS1_EE3endEv>
+ 80071ea:	4604      	mov	r4, r0
+ 80071ec:	6838      	ldr	r0, [r7, #0]
+ 80071ee:	f000 f832 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 80071f2:	4603      	mov	r3, r0
+ 80071f4:	461a      	mov	r2, r3
+ 80071f6:	4621      	mov	r1, r4
+ 80071f8:	6878      	ldr	r0, [r7, #4]
+ 80071fa:	f000 f84d 	bl	8007298 <_ZNSt6vectorIP3LedSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_>
       }
- 80071fc:	bf00      	nop
- 80071fe:	3720      	adds	r7, #32
- 8007200:	46bd      	mov	sp, r7
- 8007202:	bdb0      	pop	{r4, r5, r7, pc}
+ 80071fe:	bf00      	nop
+ 8007200:	3720      	adds	r7, #32
+ 8007202:	46bd      	mov	sp, r7
+ 8007204:	bdb0      	pop	{r4, r5, r7, pc}
 
-08007204 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>:
+08007206 <_ZN9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEEC1ERKS3_>:
       __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
- 8007204:	b480      	push	{r7}
- 8007206:	b083      	sub	sp, #12
- 8007208:	af00      	add	r7, sp, #0
- 800720a:	6078      	str	r0, [r7, #4]
- 800720c:	6039      	str	r1, [r7, #0]
+ 8007206:	b480      	push	{r7}
+ 8007208:	b083      	sub	sp, #12
+ 800720a:	af00      	add	r7, sp, #0
+ 800720c:	6078      	str	r0, [r7, #4]
+ 800720e:	6039      	str	r1, [r7, #0]
       : _M_current(__i) { }
- 800720e:	683b      	ldr	r3, [r7, #0]
- 8007210:	681a      	ldr	r2, [r3, #0]
- 8007212:	687b      	ldr	r3, [r7, #4]
- 8007214:	601a      	str	r2, [r3, #0]
- 8007216:	687b      	ldr	r3, [r7, #4]
- 8007218:	4618      	mov	r0, r3
- 800721a:	370c      	adds	r7, #12
- 800721c:	46bd      	mov	sp, r7
- 800721e:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8007222:	4770      	bx	lr
+ 8007210:	683b      	ldr	r3, [r7, #0]
+ 8007212:	681a      	ldr	r2, [r3, #0]
+ 8007214:	687b      	ldr	r3, [r7, #4]
+ 8007216:	601a      	str	r2, [r3, #0]
+ 8007218:	687b      	ldr	r3, [r7, #4]
+ 800721a:	4618      	mov	r0, r3
+ 800721c:	370c      	adds	r7, #12
+ 800721e:	46bd      	mov	sp, r7
+ 8007220:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8007224:	4770      	bx	lr
 
-08007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>:
+08007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>:
       base() const _GLIBCXX_NOEXCEPT
- 8007224:	b480      	push	{r7}
- 8007226:	b083      	sub	sp, #12
- 8007228:	af00      	add	r7, sp, #0
- 800722a:	6078      	str	r0, [r7, #4]
+ 8007226:	b480      	push	{r7}
+ 8007228:	b083      	sub	sp, #12
+ 800722a:	af00      	add	r7, sp, #0
+ 800722c:	6078      	str	r0, [r7, #4]
       { return _M_current; }
- 800722c:	687b      	ldr	r3, [r7, #4]
- 800722e:	4618      	mov	r0, r3
- 8007230:	370c      	adds	r7, #12
- 8007232:	46bd      	mov	sp, r7
- 8007234:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8007238:	4770      	bx	lr
+ 800722e:	687b      	ldr	r3, [r7, #4]
+ 8007230:	4618      	mov	r0, r3
+ 8007232:	370c      	adds	r7, #12
+ 8007234:	46bd      	mov	sp, r7
+ 8007236:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800723a:	4770      	bx	lr
 
-0800723a <_ZSt8_DestroyIPP3LedEvT_S3_>:
+0800723c <_ZSt8_DestroyIPP3LedEvT_S3_>:
    * a trivial destructor, the compiler should optimize all of this
    * away, otherwise the objects' destructors must be invoked.
    */
   template<typename _ForwardIterator>
     _GLIBCXX20_CONSTEXPR inline void
     _Destroy(_ForwardIterator __first, _ForwardIterator __last)
- 800723a:	b580      	push	{r7, lr}
- 800723c:	b082      	sub	sp, #8
- 800723e:	af00      	add	r7, sp, #0
- 8007240:	6078      	str	r0, [r7, #4]
- 8007242:	6039      	str	r1, [r7, #0]
+ 800723c:	b580      	push	{r7, lr}
+ 800723e:	b082      	sub	sp, #8
+ 8007240:	af00      	add	r7, sp, #0
+ 8007242:	6078      	str	r0, [r7, #4]
+ 8007244:	6039      	str	r1, [r7, #0]
 #if __cplusplus >= 202002L
       if (std::__is_constant_evaluated())
 	return std::_Destroy_aux<false>::__destroy(__first, __last);
 #endif
       std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
 	__destroy(__first, __last);
- 8007244:	6839      	ldr	r1, [r7, #0]
- 8007246:	6878      	ldr	r0, [r7, #4]
- 8007248:	f000 f90c 	bl	8007464 <_ZNSt12_Destroy_auxILb1EE9__destroyIPP3LedEEvT_S5_>
+ 8007246:	6839      	ldr	r1, [r7, #0]
+ 8007248:	6878      	ldr	r0, [r7, #4]
+ 800724a:	f000 f90b 	bl	8007464 <_ZNSt12_Destroy_auxILb1EE9__destroyIPP3LedEEvT_S5_>
     }
- 800724c:	bf00      	nop
- 800724e:	3708      	adds	r7, #8
- 8007250:	46bd      	mov	sp, r7
- 8007252:	bd80      	pop	{r7, pc}
+ 800724e:	bf00      	nop
+ 8007250:	3708      	adds	r7, #8
+ 8007252:	46bd      	mov	sp, r7
+ 8007254:	bd80      	pop	{r7, pc}
 
-08007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>:
+08007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>:
     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
- 8007254:	b480      	push	{r7}
- 8007256:	b083      	sub	sp, #12
- 8007258:	af00      	add	r7, sp, #0
- 800725a:	6078      	str	r0, [r7, #4]
+ 8007256:	b480      	push	{r7}
+ 8007258:	b083      	sub	sp, #12
+ 800725a:	af00      	add	r7, sp, #0
+ 800725c:	6078      	str	r0, [r7, #4]
     { return static_cast<_Tp&&>(__t); }
- 800725c:	687b      	ldr	r3, [r7, #4]
- 800725e:	4618      	mov	r0, r3
- 8007260:	370c      	adds	r7, #12
- 8007262:	46bd      	mov	sp, r7
- 8007264:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8007268:	4770      	bx	lr
+ 800725e:	687b      	ldr	r3, [r7, #4]
+ 8007260:	4618      	mov	r0, r3
+ 8007262:	370c      	adds	r7, #12
+ 8007264:	46bd      	mov	sp, r7
+ 8007266:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800726a:	4770      	bx	lr
 
-0800726a <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>:
+0800726c <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>:
       _S_use_relocate()
- 800726a:	b580      	push	{r7, lr}
- 800726c:	b082      	sub	sp, #8
- 800726e:	af00      	add	r7, sp, #0
+ 800726c:	b580      	push	{r7, lr}
+ 800726e:	b082      	sub	sp, #8
+ 8007270:	af00      	add	r7, sp, #0
 	return _S_nothrow_relocate(__is_move_insertable<_Tp_alloc_type>{});
- 8007270:	4618      	mov	r0, r3
- 8007272:	f000 f805 	bl	8007280 <_ZNSt6vectorIP3LedSaIS1_EE19_S_nothrow_relocateESt17integral_constantIbLb1EE>
- 8007276:	4603      	mov	r3, r0
+ 8007272:	4618      	mov	r0, r3
+ 8007274:	f000 f805 	bl	8007282 <_ZNSt6vectorIP3LedSaIS1_EE19_S_nothrow_relocateESt17integral_constantIbLb1EE>
+ 8007278:	4603      	mov	r3, r0
       }
- 8007278:	4618      	mov	r0, r3
- 800727a:	3708      	adds	r7, #8
- 800727c:	46bd      	mov	sp, r7
- 800727e:	bd80      	pop	{r7, pc}
+ 800727a:	4618      	mov	r0, r3
+ 800727c:	3708      	adds	r7, #8
+ 800727e:	46bd      	mov	sp, r7
+ 8007280:	bd80      	pop	{r7, pc}
 
-08007280 <_ZNSt6vectorIP3LedSaIS1_EE19_S_nothrow_relocateESt17integral_constantIbLb1EE>:
+08007282 <_ZNSt6vectorIP3LedSaIS1_EE19_S_nothrow_relocateESt17integral_constantIbLb1EE>:
       _S_nothrow_relocate(true_type)
- 8007280:	b480      	push	{r7}
- 8007282:	b083      	sub	sp, #12
- 8007284:	af00      	add	r7, sp, #0
- 8007286:	7138      	strb	r0, [r7, #4]
+ 8007282:	b480      	push	{r7}
+ 8007284:	b083      	sub	sp, #12
+ 8007286:	af00      	add	r7, sp, #0
+ 8007288:	7138      	strb	r0, [r7, #4]
 					  std::declval<_Tp_alloc_type&>()));
- 8007288:	2301      	movs	r3, #1
+ 800728a:	2301      	movs	r3, #1
       }
- 800728a:	4618      	mov	r0, r3
- 800728c:	370c      	adds	r7, #12
- 800728e:	46bd      	mov	sp, r7
- 8007290:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8007294:	4770      	bx	lr
-	...
+ 800728c:	4618      	mov	r0, r3
+ 800728e:	370c      	adds	r7, #12
+ 8007290:	46bd      	mov	sp, r7
+ 8007292:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8007296:	4770      	bx	lr
 
 08007298 <_ZNSt6vectorIP3LedSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_>:
 #if __cplusplus >= 201103L
@@ -19566,7 +19566,7 @@ void LedBoard::On(unsigned char index)
  80072ba:	643b      	str	r3, [r7, #64]	@ 0x40
       const size_type __elems_before = __position - begin();
  80072bc:	68f8      	ldr	r0, [r7, #12]
- 80072be:	f7ff feb6 	bl	800702e <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>
+ 80072be:	f7ff feb7 	bl	8007030 <_ZNSt6vectorIP3LedSaIS1_EE5beginEv>
  80072c2:	4603      	mov	r3, r0
  80072c4:	613b      	str	r3, [r7, #16]
  80072c6:	f107 0210 	add.w	r2, r7, #16
@@ -19599,14 +19599,14 @@ void LedBoard::On(unsigned char index)
  80072f0:	6bba      	ldr	r2, [r7, #56]	@ 0x38
  80072f2:	18d4      	adds	r4, r2, r3
  80072f4:	6878      	ldr	r0, [r7, #4]
- 80072f6:	f7ff ffad 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 80072f6:	f7ff ffae 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
  80072fa:	4603      	mov	r3, r0
  80072fc:	637d      	str	r5, [r7, #52]	@ 0x34
  80072fe:	633c      	str	r4, [r7, #48]	@ 0x30
  8007300:	62fb      	str	r3, [r7, #44]	@ 0x2c
 	  __a.construct(__p, std::forward<_Args>(__args)...);
  8007302:	6af8      	ldr	r0, [r7, #44]	@ 0x2c
- 8007304:	f7ff ffa6 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 8007304:	f7ff ffa7 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
  8007308:	4602      	mov	r2, r0
  800730a:	6b7b      	ldr	r3, [r7, #52]	@ 0x34
  800730c:	62bb      	str	r3, [r7, #40]	@ 0x28
@@ -19619,7 +19619,7 @@ void LedBoard::On(unsigned char index)
  800731a:	f7ff fdbf 	bl	8006e9c <_ZnwjPv>
  800731e:	4604      	mov	r4, r0
  8007320:	6a38      	ldr	r0, [r7, #32]
- 8007322:	f7ff ff97 	bl	8007254 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
+ 8007322:	f7ff ff98 	bl	8007256 <_ZSt7forwardIP3LedEOT_RNSt16remove_referenceIS2_E4typeE>
  8007326:	4603      	mov	r3, r0
  8007328:	681b      	ldr	r3, [r3, #0]
  800732a:	6023      	str	r3, [r4, #0]
@@ -19637,7 +19637,7 @@ void LedBoard::On(unsigned char index)
 
 #if __cplusplus >= 201103L
 	  if _GLIBCXX17_CONSTEXPR (_S_use_relocate())
- 8007334:	f7ff ff99 	bl	800726a <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>
+ 8007334:	f7ff ff9a 	bl	800726c <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>
  8007338:	4603      	mov	r3, r0
  800733a:	2b00      	cmp	r3, #0
  800733c:	d027      	beq.n	800738e <_ZNSt6vectorIP3LedSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_+0xf6>
@@ -19645,13 +19645,13 @@ void LedBoard::On(unsigned char index)
 	      __new_finish = _S_relocate(__old_start, __position.base(),
  800733e:	f107 0308 	add.w	r3, r7, #8
  8007342:	4618      	mov	r0, r3
- 8007344:	f7ff ff6e 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 8007344:	f7ff ff6f 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  8007348:	4603      	mov	r3, r0
  800734a:	681c      	ldr	r4, [r3, #0]
 					 __new_start, _M_get_Tp_allocator());
  800734c:	68fb      	ldr	r3, [r7, #12]
  800734e:	4618      	mov	r0, r3
- 8007350:	f7ff feff 	bl	8007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
+ 8007350:	f7ff ff00 	bl	8007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
  8007354:	4603      	mov	r3, r0
 	      __new_finish = _S_relocate(__old_start, __position.base(),
  8007356:	6bba      	ldr	r2, [r7, #56]	@ 0x38
@@ -19668,13 +19668,13 @@ void LedBoard::On(unsigned char index)
 	      __new_finish = _S_relocate(__position.base(), __old_finish,
  8007368:	f107 0308 	add.w	r3, r7, #8
  800736c:	4618      	mov	r0, r3
- 800736e:	f7ff ff59 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 800736e:	f7ff ff5a 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  8007372:	4603      	mov	r3, r0
  8007374:	681c      	ldr	r4, [r3, #0]
 					 __new_finish, _M_get_Tp_allocator());
  8007376:	68fb      	ldr	r3, [r7, #12]
  8007378:	4618      	mov	r0, r3
- 800737a:	f7ff feea 	bl	8007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
+ 800737a:	f7ff feeb 	bl	8007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
  800737e:	4603      	mov	r3, r0
 	      __new_finish = _S_relocate(__position.base(), __old_finish,
  8007380:	6cfa      	ldr	r2, [r7, #76]	@ 0x4c
@@ -19691,13 +19691,13 @@ void LedBoard::On(unsigned char index)
 		(__old_start, __position.base(),
  800738e:	f107 0308 	add.w	r3, r7, #8
  8007392:	4618      	mov	r0, r3
- 8007394:	f7ff ff46 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 8007394:	f7ff ff47 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  8007398:	4603      	mov	r3, r0
  800739a:	681c      	ldr	r4, [r3, #0]
 		 __new_start, _M_get_Tp_allocator());
  800739c:	68fb      	ldr	r3, [r7, #12]
  800739e:	4618      	mov	r0, r3
- 80073a0:	f7ff fed7 	bl	8007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
+ 80073a0:	f7ff fed8 	bl	8007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
  80073a4:	4603      	mov	r3, r0
 		(__old_start, __position.base(),
  80073a6:	6bba      	ldr	r2, [r7, #56]	@ 0x38
@@ -19716,13 +19716,13 @@ void LedBoard::On(unsigned char index)
 		(__position.base(), __old_finish,
  80073b8:	f107 0308 	add.w	r3, r7, #8
  80073bc:	4618      	mov	r0, r3
- 80073be:	f7ff ff31 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 80073be:	f7ff ff32 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  80073c2:	4603      	mov	r3, r0
  80073c4:	681c      	ldr	r4, [r3, #0]
 		 __new_finish, _M_get_Tp_allocator());
  80073c6:	68fb      	ldr	r3, [r7, #12]
  80073c8:	4618      	mov	r0, r3
- 80073ca:	f7ff fec2 	bl	8007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
+ 80073ca:	f7ff fec3 	bl	8007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
  80073ce:	4603      	mov	r3, r0
 		(__position.base(), __old_finish,
  80073d0:	6cfa      	ldr	r2, [r7, #76]	@ 0x4c
@@ -19736,7 +19736,7 @@ void LedBoard::On(unsigned char index)
 	}
 #if __cplusplus >= 201103L
       if _GLIBCXX17_CONSTEXPR (!_S_use_relocate())
- 80073dc:	f7ff ff45 	bl	800726a <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>
+ 80073dc:	f7ff ff46 	bl	800726c <_ZNSt6vectorIP3LedSaIS1_EE15_S_use_relocateEv>
  80073e0:	4603      	mov	r3, r0
  80073e2:	f083 0301 	eor.w	r3, r3, #1
  80073e6:	b2db      	uxtb	r3, r3
@@ -19746,7 +19746,7 @@ void LedBoard::On(unsigned char index)
 	std::_Destroy(__old_start, __old_finish, _M_get_Tp_allocator());
  80073ec:	68fb      	ldr	r3, [r7, #12]
  80073ee:	4618      	mov	r0, r3
- 80073f0:	f7ff feaf 	bl	8007152 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
+ 80073f0:	f7ff feb0 	bl	8007154 <_ZNSt12_Vector_baseIP3LedSaIS1_EE19_M_get_Tp_allocatorEv>
  80073f4:	4602      	mov	r2, r0
  80073f6:	6c7b      	ldr	r3, [r7, #68]	@ 0x44
  80073f8:	61fb      	str	r3, [r7, #28]
@@ -19761,7 +19761,7 @@ void LedBoard::On(unsigned char index)
       std::_Destroy(__first, __last);
  8007400:	69b9      	ldr	r1, [r7, #24]
  8007402:	69f8      	ldr	r0, [r7, #28]
- 8007404:	f7ff ff19 	bl	800723a <_ZSt8_DestroyIPP3LedEvT_S3_>
+ 8007404:	f7ff ff1a 	bl	800723c <_ZSt8_DestroyIPP3LedEvT_S3_>
     }
  8007408:	bf00      	nop
       _GLIBCXX_ASAN_ANNOTATE_REINIT;
@@ -19776,7 +19776,7 @@ void LedBoard::On(unsigned char index)
       _M_deallocate(__old_start,
  8007416:	461a      	mov	r2, r3
  8007418:	6c79      	ldr	r1, [r7, #68]	@ 0x44
- 800741a:	f7ff fe81 	bl	8007120 <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j>
+ 800741a:	f7ff fe82 	bl	8007122 <_ZNSt12_Vector_baseIP3LedSaIS1_EE13_M_deallocateEPS1_j>
       this->_M_impl._M_start = __new_start;
  800741e:	68fb      	ldr	r3, [r7, #12]
  8007420:	6bba      	ldr	r2, [r7, #56]	@ 0x38
@@ -19924,11 +19924,11 @@ void LedBoard::On(unsigned char index)
     _GLIBCXX_NOEXCEPT
     { return __lhs.base() - __rhs.base(); }
  8007512:	6878      	ldr	r0, [r7, #4]
- 8007514:	f7ff fe86 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 8007514:	f7ff fe87 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  8007518:	4603      	mov	r3, r0
  800751a:	681c      	ldr	r4, [r3, #0]
  800751c:	6838      	ldr	r0, [r7, #0]
- 800751e:	f7ff fe81 	bl	8007224 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
+ 800751e:	f7ff fe82 	bl	8007226 <_ZNK9__gnu_cxx17__normal_iteratorIPP3LedSt6vectorIS2_SaIS2_EEE4baseEv>
  8007522:	4603      	mov	r3, r0
  8007524:	681b      	ldr	r3, [r3, #0]
  8007526:	1ae3      	subs	r3, r4, r3
@@ -20727,7 +20727,7 @@ void LedBoard::On(unsigned char index)
  80079e4:	6039      	str	r1, [r7, #0]
 	{ *__to = std::move(*__from); }
  80079e6:	6838      	ldr	r0, [r7, #0]
- 80079e8:	f7ff fbbe 	bl	8007168 <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>
+ 80079e8:	f7ff fbbf 	bl	800716a <_ZSt4moveIRP3LedEONSt16remove_referenceIT_E4typeEOS4_>
  80079ec:	4603      	mov	r3, r0
  80079ee:	681a      	ldr	r2, [r3, #0]
  80079f0:	687b      	ldr	r3, [r7, #4]
@@ -20811,44 +20811,44 @@ int main()
 					KlawiaturaLed->On(0);
  8007a74:	2100      	movs	r1, #0
  8007a76:	68b8      	ldr	r0, [r7, #8]
- 8007a78:	f7ff fa9c 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007a78:	f7ff fa9d 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					WyswietlaczLed->On(3);
  8007a7c:	2103      	movs	r1, #3
  8007a7e:	6878      	ldr	r0, [r7, #4]
- 8007a80:	f7ff fa98 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007a80:	f7ff fa99 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					break;
  8007a84:	e021      	b.n	8007aca <main+0xce>
 				case BUTTON_2:
 					KlawiaturaLed->On(1);
  8007a86:	2101      	movs	r1, #1
  8007a88:	68b8      	ldr	r0, [r7, #8]
- 8007a8a:	f7ff fa93 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007a8a:	f7ff fa94 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					WyswietlaczLed->On(2);
  8007a8e:	2102      	movs	r1, #2
  8007a90:	6878      	ldr	r0, [r7, #4]
- 8007a92:	f7ff fa8f 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007a92:	f7ff fa90 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					break;
  8007a96:	e018      	b.n	8007aca <main+0xce>
 				case BUTTON_3:
 					KlawiaturaLed->On(2);
  8007a98:	2102      	movs	r1, #2
  8007a9a:	68b8      	ldr	r0, [r7, #8]
- 8007a9c:	f7ff fa8a 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007a9c:	f7ff fa8b 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					WyswietlaczLed->On(1);
  8007aa0:	2101      	movs	r1, #1
  8007aa2:	6878      	ldr	r0, [r7, #4]
- 8007aa4:	f7ff fa86 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007aa4:	f7ff fa87 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					break;
  8007aa8:	e00f      	b.n	8007aca <main+0xce>
 				case BUTTON_4:
 					KlawiaturaLed->On(3);
  8007aaa:	2103      	movs	r1, #3
  8007aac:	68b8      	ldr	r0, [r7, #8]
- 8007aae:	f7ff fa81 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007aae:	f7ff fa82 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					WyswietlaczLed->On(0);
  8007ab2:	2100      	movs	r1, #0
  8007ab4:	6878      	ldr	r0, [r7, #4]
- 8007ab6:	f7ff fa7d 	bl	8006fb4 <_ZN8LedBoard2OnEh>
+ 8007ab6:	f7ff fa7e 	bl	8006fb6 <_ZN8LedBoard2OnEh>
 					break;
  8007aba:	e006      	b.n	8007aca <main+0xce>
 				default:

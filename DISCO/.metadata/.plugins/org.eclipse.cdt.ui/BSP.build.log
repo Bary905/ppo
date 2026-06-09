@@ -1,0 +1,10 @@
+12:58:38 **** Incremental Build of configuration Discovery_Debug for project BSP ****
+make -j16 all 
+arm-none-eabi-size  BSP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40076	    236	   2604	  42916	   a7a4	BSP.elf
+Finished building: default.size.stdout
+ 
+
+12:58:39 Build Finished. 0 errors, 0 warnings. (took 837ms)
+

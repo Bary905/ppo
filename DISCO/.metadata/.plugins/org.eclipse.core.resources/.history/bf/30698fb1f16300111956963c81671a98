@@ -1,0 +1,31 @@
+#include "LedBoard.h"
+#include <stm32f429i_discovery_lcd.h>
+
+LedBoard::LedBoard(unsigned char ucColumn)
+{
+	BSP_LCD_Init();
+	BSP_LCD_DisplayOn();
+	BSP_LCD_SetBackColor(LCD_COLOR_RED);
+
+	for (unsigned int i = 0; i < 4; i++)
+	{
+		Leds.push_back(new Led(ucColumn, i));
+	}
+}
+
+void LedBoard::Off()
+{
+	for (auto it : Leds)
+	{
+		it->Off();
+	}
+}
+
+void LedBoard::On(unsigned char index)
+{
+	Off();
+	if (index < 4)
+	{
+		Leds[index]->On();
+	}
+}

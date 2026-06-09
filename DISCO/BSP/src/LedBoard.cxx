@@ -15,9 +15,9 @@ LedBoard::LedBoard(unsigned char ucColumn)
 
 void LedBoard::Off()
 {
-	for (std::vector<Led*>::iterator it = Leds.begin(); it != Leds.end(); ++it)
+	for (auto it : Leds)
 	{
-		(*it)->Off();
+		it -> Off();
 	}
 }
 
